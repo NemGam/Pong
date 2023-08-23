@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pong", "Pong.vcxproj", "{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Debug|x64.ActiveCfg = Debug|x64
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Debug|x64.Build.0 = Debug|x64
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Debug|x86.ActiveCfg = Debug|Win32
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Debug|x86.Build.0 = Debug|Win32
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Release|x64.ActiveCfg = Release|x64
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Release|x64.Build.0 = Release|x64
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Release|x86.ActiveCfg = Release|Win32
+		{9F1B9D2C-276E-4F75-AB31-2EBF7C70705F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {099F5521-12B7-4742-92FC-27C42F22FD04}
+	EndGlobalSection
+EndGlobal
