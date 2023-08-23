@@ -18,6 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Ball.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\MiddleLine.cpp" />
+    <ClCompile Include="Source\Paddle.cpp" />
+    <ClCompile Include="Source\Text.cpp" />
+    <ClCompile Include="Source\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\GILB____.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Ball.h" />
+    <ClInclude Include="Headers\Game.h" />
+    <ClInclude Include="Headers\MiddleLine.h" />
+    <ClInclude Include="Headers\Paddle.h" />
+    <ClInclude Include="Headers\Text.h" />
+    <ClInclude Include="Headers\Window.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -72,11 +92,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>D:\Programs\SDL2-2.26.3\lib\x64;D:\Programs\SDL2_ttf-2.20.2\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
+    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Source;C:\Users\Vladislav\source\repos\Pong\Headers;D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>D:\Programs\SDL2-2.26.3\lib\x64;D:\Programs\SDL2_ttf-2.20.2\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
+    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Source;C:\Users\Vladislav\source\repos\Pong\Headers;D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -137,23 +157,6 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MiddleLine.cpp" />
-    <ClCompile Include="Paddle.cpp" />
-    <ClCompile Include="Text.cpp" />
-    <ClCompile Include="Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Ball.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="MiddleLine.h" />
-    <ClInclude Include="Paddle.h" />
-    <ClInclude Include="Text.h" />
-    <ClInclude Include="Window.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
