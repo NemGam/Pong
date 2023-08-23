@@ -33,9 +33,6 @@ namespace pong {
 		static uint32_t last_ticks = 0;
 
 		while (is_running){
-
-			
-			
 			
 			while (SDL_GetTicks() < next_ticks)
 				;

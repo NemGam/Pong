@@ -1,5 +1,6 @@
 #include "Text.h"
 #include "Window.h"
+
 namespace pong {
 	Text::Text(TTF_Font* font, int xpos, int ypos, const std::string& text, const int alignment, SDL_Color color)
 		: rect{0, 0, 0, 0}, font(font), color(color), alignment(alignment)
@@ -7,11 +8,14 @@ namespace pong {
 		SDL_Surface* surface = TTF_RenderUTF8_Solid(font, text.c_str(), color);
 		if (!surface) {
 			std::cerr << "Failed to create a text: " << TTF_GetError() << std::endl;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to create a text!", TTF_GetError(), nullptr);
 			return;
 		}
 		this->text_texture = SDL_CreateTextureFromSurface(Window::get_renderer(), surface);
 		if (!this->text_texture){
 			std::cerr << "Failed to create a texture: " << TTF_GetError() << std::endl;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to create a texture!", TTF_GetError(), nullptr);
+			SDL_FreeSurface(surface);
 			return;
 		}
 

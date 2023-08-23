@@ -28,18 +28,21 @@ namespace pong {
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 		if (renderer == nullptr) {
 			std::cerr << "Renderer could not be created! SDL_Error: " << SDL_GetError() << std::endl;
-			return;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Renderer could not be created!", SDL_GetError(), nullptr);
+			exit(-1);
 		}
 
 		if (TTF_Init() == -1) {
 			std::cerr << "TTF text was not initialized! SDL_Error: " << SDL_GetError() << std::endl;
-			return;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "TTF text was not initialized!", SDL_GetError(), nullptr);
+			exit(-1);
 		}
 
 		window_font = TTF_OpenFont(font_path, FONT_SIZE);
 		if (window_font == nullptr) {
 			std::cerr << "TTF failed to open! SDL_Error: " << SDL_GetError() << std::endl;
-			return;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to open the font!", SDL_GetError(), nullptr);
+			exit(-1);
 		}
 	
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
