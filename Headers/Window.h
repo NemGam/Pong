@@ -14,10 +14,10 @@ namespace pong {
 		 * @param title The title of the window.
 		 * @param width The width of the window.
 		 * @param height The height of the window.
-		 * @param font_path Path to the font to use to render text.
+		 * @param font_path Relative path to the font to use with text rendering.
 		 * @param flags Flags to set to the window.
 		*/
-		Window(const char* title, int width, int height, const char* font_path, Uint32 flags);
+		Window(const char* title, int width, int height, const std::string &font_path, Uint32 flags);
 
 		~Window();
 

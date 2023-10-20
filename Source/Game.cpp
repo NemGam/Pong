@@ -7,7 +7,7 @@ namespace pong {
 	Game* Game::self;
 
 	Game::Game()
-	: window( "PONG", 640, 480, "./GILB____.TTF", SDL_WINDOW_SHOWN ),
+	: window( "PONG", 640, 480, "Fonts/GILB____.TTF", SDL_WINDOW_SHOWN ),
 	ball(static_cast<float>(Window::get_width()) * 0.5f, static_cast<float>(Window::get_height()) * 0.5f),
 	left_paddle(static_cast<float>(platform_x_offset), static_cast<float>(Window::get_height() - Paddle::platform_height) / 2),
 	right_paddle(static_cast<float>(Window::get_width() - platform_x_offset) - Paddle::platform_width,

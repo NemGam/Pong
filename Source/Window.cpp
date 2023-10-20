@@ -9,20 +9,26 @@ namespace pong {
 	int Window::window_height; 
 
 
-	Window::Window(const char* title, const int width, const int height, const char* font_path, const Uint32 flags)
+	Window::Window(const char* title, const int width, const int height, const std::string &font_path, const Uint32 flags)
 	{
+		//Convert relative path to the absolute absolute
+		std::string abs_font_path(SDL_GetBasePath());
+		abs_font_path += font_path;
+
 		window = nullptr;
 		renderer = nullptr;
 		window_font = nullptr;
 		if (SDL_Init(SDL_INIT_VIDEO) == -1) {
 			std::cerr << "SDL could not be initialized! SDL_Error: " << SDL_GetError() << std::endl;
-			return;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "SDL could not be initialized!", SDL_GetError(), nullptr);
+			exit(-1);
 		}
 		
 		window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
 		if (window == nullptr) {
 			std::cerr << "Window could not be created! SDL_Error: " << SDL_GetError() << std::endl;
-			return;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Window could not be created!", SDL_GetError(), nullptr);
+			exit(-1);
 		}
 
 		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -38,10 +44,11 @@ namespace pong {
 			exit(-1);
 		}
 
-		window_font = TTF_OpenFont(font_path, FONT_SIZE);
+		//window_font = TTF_OpenFont(font_path, FONT_SIZE);
+		window_font = TTF_OpenFont(abs_font_path.c_str(), FONT_SIZE);
 		if (window_font == nullptr) {
-			std::cerr << "TTF failed to open! SDL_Error: " << SDL_GetError() << std::endl;
-			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to open the font!", SDL_GetError(), nullptr);
+			std::cerr << "TTF failed to open! SDL_Error: " << TTF_GetError() << std::endl;
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to open the font!", TTF_GetError(), nullptr);
 			exit(-1);
 		}
 	
