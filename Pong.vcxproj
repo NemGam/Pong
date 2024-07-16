@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\asset_database.cpp" />
+    <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="Source\Ball.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -26,17 +28,39 @@
     <ClCompile Include="Source\Paddle.cpp" />
     <ClCompile Include="Source\Text.cpp" />
     <ClCompile Include="Source\Window.cpp" />
+    <ClCompile Include="src\ball.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\logger.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\middle_line.cpp" />
+    <ClCompile Include="src\paddle.cpp" />
+    <ClCompile Include="src\text.cpp" />
+    <ClCompile Include="src\texture_data.cpp" />
+    <ClCompile Include="src\unique_ptrs_destructors.cpp" />
+    <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Fonts\GILB____.TTF" />
+    <Font Include="resources\GILB____.TTF" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\asset_database.h" />
+    <ClInclude Include="src\global_consts.h" />
     <ClInclude Include="Headers\Ball.h" />
     <ClInclude Include="Headers\Game.h" />
     <ClInclude Include="Headers\MiddleLine.h" />
     <ClInclude Include="Headers\Paddle.h" />
     <ClInclude Include="Headers\Text.h" />
     <ClInclude Include="Headers\Window.h" />
+    <ClInclude Include="src\texture.h" />
+    <ClInclude Include="src\ball.h" />
+    <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\logger.h" />
+    <ClInclude Include="src\middle_line.h" />
+    <ClInclude Include="src\paddle.h" />
+    <ClInclude Include="src\text.h" />
+    <ClInclude Include="src\texture_data.h" />
+    <ClInclude Include="src\unique_ptrs_destructors.h" />
+    <ClInclude Include="src\window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -91,12 +115,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>D:\Programs\SDL2-2.26.3\lib\x64;D:\Programs\SDL2_ttf-2.20.2\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Source;C:\Users\Vladislav\source\repos\Pong\Headers;D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
+    <LibraryPath>D:\Libraries\SDL2-2.30.5\lib\x64;D:\Libraries\SDL2_ttf-2.22.0\lib\x64;D:\Libraries\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Headers;D:\Libraries\SDL2-2.30.5\include;D:\Libraries\SDL2-2.30.5\include\SDL2;D:\Libraries\SDL2_ttf-2.22.0\include\SDL2;D:\Libraries\SDL2_ttf-2.22.0\include;D:\Libraries\SDL2_image-2.8.2\include\SDL2;D:\Libraries\SDL2_image-2.8.2\include;$(ExecutablePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>D:\Programs\SDL2-2.26.3\lib\x64;D:\Programs\SDL2_ttf-2.20.2\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Source;C:\Users\Vladislav\source\repos\Pong\Headers;D:\Programs\SDL2-2.26.3\include;D:\Programs\SDL2_ttf-2.20.2\include;$(ExecutablePath)</IncludePath>
+    <LibraryPath>D:\Libraries\SDL2-2.30.5\lib\x64;D:\Libraries\SDL2_ttf-2.22.0\lib\x64;D:\Libraries\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Vladislav\source\repos\Pong\Headers;D:\Libraries\SDL2-2.30.5\include;D:\Libraries\SDL2-2.30.5\include\SDL2;D:\Libraries\SDL2_ttf-2.22.0\include\SDL2;D:\Libraries\SDL2_ttf-2.22.0\include;D:\Libraries\SDL2_image-2.8.2\include\SDL2;D:\Libraries\SDL2_image-2.8.2\include;$(ExecutablePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
