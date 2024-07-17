@@ -26,8 +26,8 @@ namespace pong {
 		left_paddle_.SetPosition(platform_x_offset, static_cast<float>(window.GetHeight() / 2.0 - left_paddle_.GetRect()->h));
 		right_paddle_.SetPosition(static_cast<float>(window.GetWidth()) - platform_x_offset - right_paddle_.GetRect()->w, static_cast<float>(window.GetHeight() / 2.0 - left_paddle_.GetRect()->h));
 
-		first_score_text_ = Text::Create(window, window.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 - 100, window.GetHeight() / 4, "0", Text::TextAlignment::kLeft, { 50, 50, 50, 255 });
-		second_score_text_ = Text::Create(window, window.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 * 3 + 100, window.GetHeight() / 4, "0", Text::TextAlignment::kRight, { 50, 50, 50, 255 });
+		first_score_text_ = Text::Create(window, database.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 - 100, window.GetHeight() / 4, "0", Text::TextAlignment::kLeft, { 50, 50, 50, 255 });
+		second_score_text_ = Text::Create(window, database.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 * 3 + 100, window.GetHeight() / 4, "0", Text::TextAlignment::kRight, { 50, 50, 50, 255 });
 		
 		self = this;
 	}

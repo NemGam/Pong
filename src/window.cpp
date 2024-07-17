@@ -56,31 +56,4 @@ namespace pong {
 	const SDL_Renderer* Window::GetRenderer() const {
 		return sdl_renderer_.get();
 	}
-
-	const TTF_Font* Window::GetFont(const std::string& name, int size) const {
-		const auto it = window_fonts_.find(name + std::to_string(size));
-		if (it != window_fonts_.end()) {
-			return it->second.get();
-		}
-
-		std::string key = "/";
-
-		//Convert relative path to the absolute path
-		//std::string abs_font_path(SDL_GetBasePath());
-		//abs_font_path += "/resources";
-		std::string abs_font_path(RESOURCES_PATH"/resources");
-		
-		abs_font_path += key.append(name);
-
-		TTF_Font* font = TTF_OpenFont(abs_font_path.c_str(), size);
-		if (font == nullptr) {
-			logger::LogAndShowError(TTF_GetError());
-			TTF_CloseFont(font);
-			return nullptr;
-		}
-
-		window_fonts_[name + std::to_string(size)] = std::unique_ptr<TTF_Font, TtfFontDestructor>(font);
-
-		return font;
-	}
 }

@@ -19,7 +19,6 @@ namespace pong {
 		const SDL_Renderer* GetRenderer() const;
 		int GetHeight() const;
 		int GetWidth() const;
-		const TTF_Font* GetFont(const std::string& name, int size) const;
 
 	private:
 		Window(std::unique_ptr<SDL_Window, SdlWindowDestructor> sdl_window,

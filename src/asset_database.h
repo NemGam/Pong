@@ -1,7 +1,7 @@
 #ifndef ASSET_DATABASE_H
 #define ASSET_DATABASE_H
 #include <map>
-#include <SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 #include <string>
 
 #include "texture.h"
