@@ -1,6 +1,6 @@
 # [<ins>Pong</ins>](https://github.com/NemGam/Pong/releases/download/v1.2.0/Pong.zip)
 This is the pong game recreated using C++ and SDL2 library. 
-It supports sprite and font loading, allowing you to replace file as long as the same file name is kept.
+It supports sprite and font loading, allowing you to replace files as long as the same file name is kept.
 <!--This game is also available in [Game Launcher](https://github.com/NemGam/GameLauncher) -->
 
 
