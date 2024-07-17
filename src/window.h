@@ -27,7 +27,6 @@ namespace pong {
 
 		std::unique_ptr<SDL_Window, SdlWindowDestructor> sdl_window_;
 		std::unique_ptr<SDL_Renderer, SdlRendererDestructor> sdl_renderer_;
-		mutable std::map<std::string, std::unique_ptr<TTF_Font, TtfFontDestructor>> window_fonts_;
 		int window_height_;
 		int window_width_;
 	};

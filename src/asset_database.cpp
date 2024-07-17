@@ -37,7 +37,7 @@ namespace pong {
 	bool AssetDatabase::LoadTexture(const std::string& name, const std::string& path) const {
 		Texture tex = Texture(renderer_);
 
-		if (!tex.LoadFromFile(path)) {
+		if (!tex.CreateFromFile(path)) {
 			logger::LogAndShowError(SDL_GetError());
 			return false;
 		}

@@ -26,14 +26,14 @@ namespace pong {
 		SDL_RenderCopyEx(const_cast<SDL_Renderer*>(renderer_), data_->texture, nullptr, &render_rect, angle, nullptr, SDL_FLIP_NONE);
 	}
 
-	bool Texture::LoadFromFile(const std::string& path) {
+	bool Texture::CreateFromFile(const std::string& path) {
 		Clear();
 
 		SDL_Texture* tex = nullptr;
 
 		auto surf = std::unique_ptr<SDL_Surface, SdlSurfaceDestructor>(IMG_Load(path.c_str()));
 
-		if (surf == nullptr) {
+		if (!surf) {
 			return false;
 		}
 
@@ -50,6 +50,37 @@ namespace pong {
 		data_->height = surf->h;
 
 		data_->texture = tex;
+		return true;
+	}
+
+	bool Texture::CreateFromText(const std::string& text, TTF_Font* font, SDL_Color color) {
+		if (!font) {
+			return false;
+		}
+
+		Clear();
+
+		auto surf = std::unique_ptr<SDL_Surface, SdlSurfaceDestructor>(
+			TTF_RenderText_Blended(font, (text.empty() ? " " : text).c_str(), color)
+		);
+
+		if (!surf) {
+			logger::LogAndShowError(SDL_GetError());
+			return false;
+		}
+
+
+		data_->texture = SDL_CreateTextureFromSurface(const_cast<SDL_Renderer*>(renderer_), surf.get());
+
+		if (data_->texture== nullptr) {
+			logger::LogAndShowError(SDL_GetError());
+			return false;
+		}
+		
+		data_->width = surf->w;
+		data_->height = surf->h;
+
+
 		return true;
 	}
 

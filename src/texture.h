@@ -4,6 +4,8 @@
 #include <SDL2/SDL_render.h>
 #include <string>
 #include <memory>
+#include <SDL2/SDL_ttf.h>
+
 #include "texture_data.h"
 
 namespace pong {
@@ -23,7 +25,10 @@ namespace pong {
 		void Render(int x, int y, double angle = 0) const;
 		void Render(int x, int y, int w, int h, double angle = 0) const;
 
-		bool LoadFromFile(const std::string& path);
+		//Loads and creates texture from the given file.
+		bool CreateFromFile(const std::string& path);
+		//Creates texture from the given string.
+		bool CreateFromText(const std::string& text, TTF_Font* font, SDL_Color color);
 
 		int GetWidth() const;
 		int GetHeight() const;

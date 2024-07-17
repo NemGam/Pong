@@ -4,7 +4,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <string>
 #include <iostream>
-#include "window.h"
+
+#include "texture.h"
 
 namespace pong {
 
@@ -14,15 +15,12 @@ namespace pong {
 		enum class TextAlignment { kLeft = 0, kMiddle = 1, kRight = 2 };
 
 
-		static std::unique_ptr<Text> Create(const Window& window, const TTF_Font* font, int x_pos, int y_pos, 
-			const std::string& text = "New Text", TextAlignment alignment = TextAlignment::kLeft, 
-			SDL_Color color = { 255, 255, 255, 255 });
-
-
-		Text(const Text&) = delete;
-		Text(Text&& t) = delete;
-		Text& operator=(const Text&) = delete;
-		Text&& operator=(Text&& t) = delete;
+		Text(const SDL_Renderer* renderer, std::string text, const TTF_Font* font, int x_pos, int y_pos,
+			TextAlignment alignment, SDL_Color color);
+		Text(const Text&) = default;
+		Text(Text&& t) = default;
+		Text& operator=(const Text&) = default;
+		Text&& operator=(Text&& t) = default;
 		
 
 		~Text() = default;
@@ -33,8 +31,6 @@ namespace pong {
 
 
 	private:
-		Text(const Window& window, const TTF_Font* font, int x_pos, int y_pos, const std::string& text,
-			std::unique_ptr<SDL_Texture, SdlTextureDestructor> text_texture, TextAlignment alignment, SDL_Color color);
 
 		//Regenerates text, must be called on any text change. Relatively expensive.
 		void Regenerate();
@@ -43,12 +39,11 @@ namespace pong {
 		int x_pos_;
 		int y_pos_;
 		std::string text_;
-		const Window& window_;
 		SDL_Rect rect_;
 		const TTF_Font* font_;
-		std::unique_ptr<SDL_Texture, SdlTextureDestructor> text_texture_;
 		SDL_Color color_;
 		TextAlignment alignment_;
+		Texture texture_;
 	};
 }
 #endif

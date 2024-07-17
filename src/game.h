@@ -37,13 +37,13 @@ namespace pong {
 
 
 		float delta_time_;
-		static bool is_running_;
+		bool is_running_;
 
 		const Window& window_;
 		Ball ball_;
 		Paddle left_paddle_, right_paddle_;
-		std::unique_ptr<Text> first_score_text_;
-		std::unique_ptr<Text> second_score_text_;
+		Text first_score_text_;
+		Text second_score_text_;
 		MiddleLine middle_line_;
 		int left_score_, right_score_;
 		Uint32 ticks_count_;

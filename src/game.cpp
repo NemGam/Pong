@@ -6,29 +6,34 @@
 
 namespace pong {
 	SDL_Event event;
-	bool Game::is_running_;
 	Game* Game::self;
 
-	Game::Game(const Window& window, const AssetDatabase& database)
-		: delta_time_(0), window_(window),
-		ball_(static_cast<float>(window.GetWidth()) * 0.5f, static_cast<float>(window.GetHeight()) * 0.5f, database.GetTexture("ball.png")),
+	Game::Game(const Window& window, const AssetDatabase& database) :
+		delta_time_(0),
+		window_(window),
+		ball_(static_cast<float>(window.GetWidth()) * 0.5f, static_cast<float>(window.GetHeight()) * 0.5f, 
+			database.GetTexture("ball.png")),
 		left_paddle_(0, 0, database.GetTexture("paddle.png")),
 		right_paddle_(0, 0, database.GetTexture("paddle.png")),
+		first_score_text_(window.GetRenderer(), "0", database.GetFont("GILB____.TTF", 190),
+			window.GetWidth() / 4 - 100, window.GetHeight() / 4, Text::TextAlignment::kLeft,
+			{50, 50, 50, 255}),
+		second_score_text_(window.GetRenderer(), "0", database.GetFont("GILB____.TTF", 190),
+			window.GetWidth() / 4 * 3 + 100, window.GetHeight() / 4, Text::TextAlignment::kRight,
+			{ 50, 50, 50, 255 }),
 		middle_line_(database.GetTexture("middle_line.png")),
 		left_score_(0),
 		right_score_(0),
 		ticks_count_(0)
 	{
-		
-		
 		float platform_x_offset = 18;
 
-		left_paddle_.SetPosition(platform_x_offset, static_cast<float>(window.GetHeight() / 2.0 - left_paddle_.GetRect()->h));
-		right_paddle_.SetPosition(static_cast<float>(window.GetWidth()) - platform_x_offset - right_paddle_.GetRect()->w, static_cast<float>(window.GetHeight() / 2.0 - left_paddle_.GetRect()->h));
+		left_paddle_.SetPosition(platform_x_offset,
+		                         static_cast<float>(window.GetHeight()) / 2.0f - left_paddle_.GetRect()->h);
+		right_paddle_.SetPosition(
+			static_cast<float>(window.GetWidth()) - platform_x_offset - right_paddle_.GetRect()->w,
+			static_cast<float>(window.GetHeight()) / 2.0f - left_paddle_.GetRect()->h);
 
-		first_score_text_ = Text::Create(window, database.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 - 100, window.GetHeight() / 4, "0", Text::TextAlignment::kLeft, { 50, 50, 50, 255 });
-		second_score_text_ = Text::Create(window, database.GetFont("GILB____.TTF", 90), window.GetWidth() / 4 * 3 + 100, window.GetHeight() / 4, "0", Text::TextAlignment::kRight, { 50, 50, 50, 255 });
-		
 		self = this;
 	}
 
@@ -74,12 +79,10 @@ namespace pong {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
-		//Render score texts
-		first_score_text_->Render();
-		second_score_text_->Render();
+		//Render actual objects
+		first_score_text_.Render();
+		second_score_text_.Render();
 
-
-		//Render middle line
 		middle_line_.Render();
 
 		ball_.Render();
@@ -103,6 +106,9 @@ namespace pong {
 		if (keystate[SDL_SCANCODE_W]) left_paddle_.MoveUp();
 		else if (keystate[SDL_SCANCODE_S]) left_paddle_.MoveDown();
 
+		if (keystate[SDL_SCANCODE_ESCAPE]) {
+			is_running_ = false;
+		}
 
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
@@ -124,11 +130,11 @@ namespace pong {
 	void Game::AddScore(const int player) {
 		if (!player) {
 			right_score_ = static_cast<int>(fmin(99, ++right_score_));
-			second_score_text_->SetText(std::to_string(right_score_));
+			second_score_text_.SetText(std::to_string(right_score_));
 		}
 		else {
 			left_score_ = static_cast<int>(fmin(99, ++left_score_));
-			first_score_text_->SetText(std::to_string(left_score_));
+			first_score_text_.SetText(std::to_string(left_score_));
 		}
 		ball_.ResetBall();
 	}
