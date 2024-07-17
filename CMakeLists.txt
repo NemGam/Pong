@@ -3,9 +3,6 @@ project(pong)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/dist)
 
-add_compile_definitions(
-    RESOURCES_PATH="${CMAKE_INSTALL_PREFIX}/share")
-
 message(STATUS "${CMAKE_INSTALL_PREFIX}/share")
 
 add_executable(

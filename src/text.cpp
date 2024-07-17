@@ -2,7 +2,6 @@
 
 #include "logger.h"
 #include "window.h"
-#include "unique_ptrs_destructors.h"
 
 namespace pong {
 
@@ -17,7 +16,6 @@ namespace pong {
 		alignment_(alignment),
 		texture_(renderer)
 	{
-
 		Regenerate();
 	}
 
