@@ -20,7 +20,7 @@ namespace pong {
 		Text(const Text&) = default;
 		Text(Text&& t) = default;
 		Text& operator=(const Text&) = default;
-		Text&& operator=(Text&& t) = default;
+		Text& operator=(Text&& t) = default;
 		
 
 		~Text() = default;
