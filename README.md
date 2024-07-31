@@ -11,7 +11,7 @@ Windows build can be downloaded [here](https://github.com/NemGam/Snake/releases/
 # Getting Started (Linux)
 ## Dependencies
 - CMake (version 3.13 or higher recommended)
-- C++ Compiler: Compatible with C++17 standard
+- C++ Compiler: Compatible with C++11 standard
 - SDL2 (>= 2.0.20)
 - SDL2-ttf (>= 2.0.18)
 - SDL2-image (>= 2.0.5)
