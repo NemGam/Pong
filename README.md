@@ -7,7 +7,7 @@ It supports sprite and font loading, allowing you to replace files as long as th
 ![Pong](https://github.com/user-attachments/assets/dc92b710-6a10-4fa6-8fdc-ea464a461de3)
 
 
-Windows build can be downloaded [here](https://github.com/NemGam/Snake/releases/download/v1.2.0/Pong.zip). Just unpack to any folder and run snake.exe. 
+Windows build can be downloaded [here](https://github.com/NemGam/Snake/releases/download/v1.2.0/Pong.zip). Just unpack to any folder and run pong.exe. 
 # Getting Started (Linux)
 ## Dependencies
 - CMake (version 3.13 or higher recommended)
